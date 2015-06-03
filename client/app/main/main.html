@@ -1,0 +1,41 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="text-center">LISTADO DE PAISES</h1>
+      <table class="table table-striped" ng-controller="ModalDemoCtrl">
+        <th>PAIS</th>
+        <th>CAPITAL</th>
+        <th>CONTINENTE</th>
+        <tr ng-repeat="item in data" ng-click="open('sm',item.translations)"
+            data-trigger="hover"
+            data-placement="right"
+            data-title="Población: {{item.population}}"
+            bs-tooltip>
+          <td>{{item.name}}</td>
+          <td>{{item.capital}}</td>
+          <td>{{item.region}}</td>
+        </tr>
+      </table>
+      <div ng-controller="ModalDemoCtrl">
+        <script type="text/ng-template" id="myModalContent.html">
+          <div class="modal-header">
+            <h3 class="modal-title text-center">Lenguajes</h3>
+          </div>
+          <div class="modal-body">
+            <ul>
+              <li ng-repeat="item in items">
+                <a ng-click="selected.item = item">{{ item }}</a>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+          </div>
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
